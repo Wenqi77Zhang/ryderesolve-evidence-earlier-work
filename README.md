@@ -81,4 +81,6 @@ git push origin main
 gh repo view --json visibility,url
 ```
 
+如果 Git 报 `Could not connect` 且明确指向本机代理 `127.0.0.1`，本次可用 `git -c http.proxy= push origin main` 或 `git -c http.proxy= pull --ff-only` 临时直连；该参数只影响当前命令，不改全局代理设置。
+
 队友访问私有仓库需要你后续明确选择协作者。不要提交 `.venv`、密钥、真实乘客数据或个人邮箱内容。
