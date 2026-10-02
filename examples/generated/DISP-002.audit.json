@@ -1,0 +1,50 @@
+{
+  "case_id": "DISP-002",
+  "source_sha256": "6712c5be3edf06bf27fccdaabb7b46ecf9936dba56758b7db5e74e40599579ca",
+  "data_origin": "organizer_sample",
+  "policy_origin": "organizer_sample",
+  "source_url": "https://drive.google.com/file/d/1f6KAuu5ZFqBKHvsAVlg-ZC_FgHazbqNF/view",
+  "issues": [
+    {
+      "code": "WAIT_START_DISAGREEMENT",
+      "severity": "review",
+      "message": "Order and app timer start records produce different elapsed times. Preserve both calculations.",
+      "source_refs": [
+        "/trip_data/driver_wait_start",
+        "/app_events/5/timestamp"
+      ]
+    },
+    {
+      "code": "POLICY_CLOCK_BASIS_UNSPECIFIED",
+      "severity": "review",
+      "message": "The policy does not specify which recorded event starts the no-show clock. Do not silently choose a basis.",
+      "source_refs": [
+        "/cancellation_policy"
+      ]
+    }
+  ],
+  "requires_policy_or_data_review": true,
+  "metrics": {
+    "trip_wait": {
+      "seconds": 480.0,
+      "source_refs": [
+        "/trip_data/driver_wait_start",
+        "/trip_data/cancellation_time"
+      ],
+      "method": "timezone-aware timestamp subtraction"
+    },
+    "app_wait_5": {
+      "seconds": 470.0,
+      "source_refs": [
+        "/app_events/5/timestamp",
+        "/trip_data/cancellation_time"
+      ],
+      "method": "timezone-aware timestamp subtraction"
+    }
+  },
+  "notes": [
+    "This report does not decide the dispute or supply model confidence.",
+    "Party statements and app-event conclusions are attributed records, not automatically established facts.",
+    "Evidence IDs are scoped to case_id and source_sha256; do not reuse references after a source update."
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "dataset_metadata": {
+    "data_origin": "synthetic",
+    "policy_origin": "team_authored_synthetic",
+    "version": "1.0",
+    "purpose": "Evidence and tools integration only",
+    "limitations": [
+      "Invented participants, times, coordinates, quotations and rules.",
+      "Reference geometry is synthetic and is not asserted to be road-network optimal.",
+      "No ground-truth ruling is supplied; distance alone does not establish responsibility."
+    ]
+  },
+  "dispute_ticket": {
+    "dispute_id": "SYN-ROUTE-001",
+    "trip_id": "TRIP-SYN-ROUTE-001",
+    "filed_by": "rider",
+    "dispute_type": "route_deviation",
+    "description": "I believe the driver used an unnecessarily long route. The original quote was SGD 10.00 but I was charged SGD 15.00. I would like the difference reviewed.",
+    "filed_at": "2026-10-01T10:30:00+08:00",
+    "status": "open"
+  },
+  "rider_profile": {
+    "rider_id": "R-SYN-001",
+    "name": "Synthetic Rider A",
+    "account_age_days": 100,
+    "total_trips": 20,
+    "avg_rating": 4.5,
+    "dispute_history": {
+      "total_disputes": 0
+    },
+    "fraud_flags": 0
+  },
+  "driver_profile": {
+    "driver_id": "D-SYN-001",
+    "name": "Synthetic Driver A",
+    "account_age_days": 400,
+    "total_trips": 800,
+    "avg_rating": 4.5,
+    "dispute_history": {
+      "total_disputes": 0
+    },
+    "fraud_flags": 0,
+    "vehicle": "TEST-VEHICLE-001"
+  },
+  "trip_data": {
+    "trip_id": "TRIP-SYN-ROUTE-001",
+    "rider_id": "R-SYN-001",
+    "driver_id": "D-SYN-001",
+    "pickup_location": {
+      "name": "Synthetic Pickup A",
+      "lat": 1.3,
+      "lng": 103.8
+    },
+    "dropoff_location": {
+      "name": "Synthetic Dropoff B",
+      "lat": 1.3,
+      "lng": 103.82
+    },
+    "scheduled_time": "2026-10-01T10:00:00+08:00",
+    "driver_arrival_time": "2026-10-01T09:59:00+08:00",
+    "trip_start_time": "2026-10-01T10:00:00+08:00",
+    "trip_end_time": "2026-10-01T10:14:00+08:00"
+  },
+  "gps_telemetry": [
+    {
+      "timestamp": "2026-10-01T10:00:00+08:00",
+      "lat": 1.3,
+      "lng": 103.8,
+      "speed_kmh": 0,
+      "status": "in_trip"
+    },
+    {
+      "timestamp": "2026-10-01T10:02:00+08:00",
+      "lat": 1.3,
+      "lng": 103.805,
+      "speed_kmh": 24,
+      "status": "in_trip"
+    },
+    {
+      "timestamp": "2026-10-01T10:05:00+08:00",
+      "lat": 1.31,
+      "lng": 103.805,
+      "speed_kmh": 24,
+      "status": "in_trip"
+    },
+    {
+      "timestamp": "2026-10-01T10:09:00+08:00",
+      "lat": 1.31,
+      "lng": 103.815,
+      "speed_kmh": 24,
+      "status": "in_trip"
+    },
+    {
+      "timestamp": "2026-10-01T10:12:00+08:00",
+      "lat": 1.3,
+      "lng": 103.815,
+      "speed_kmh": 24,
+      "status": "in_trip"
+    },
+    {
+      "timestamp": "2026-10-01T10:14:00+08:00",
+      "lat": 1.3,
+      "lng": 103.82,
+      "speed_kmh": 0,
+      "status": "in_trip"
+    }
+  ],
+  "reference_route": [
+    {
+      "lat": 1.3,
+      "lng": 103.8
+    },
+    {
+      "lat": 1.3,
+      "lng": 103.81
+    },
+    {
+      "lat": 1.3,
+      "lng": 103.82
+    }
+  ],
+  "chat_logs": [
+    {
+      "timestamp": "2026-10-01T10:03:00+08:00",
+      "sender": "rider",
+      "type": "message",
+      "content": "Why are we turning away from the route shown in the app?"
+    },
+    {
+      "timestamp": "2026-10-01T10:04:00+08:00",
+      "sender": "driver",
+      "type": "message",
+      "content": "I believe traffic is worse on the direct route. I am taking another way."
+    },
+    {
+      "timestamp": "2026-10-01T10:05:00+08:00",
+      "sender": "rider",
+      "type": "message",
+      "content": "I did not request a longer route. Please explain any additional charge."
+    }
+  ],
+  "app_events": [
+    {
+      "timestamp": "2026-10-01T10:00:00+08:00",
+      "event_type": "trip_started",
+      "details": "Synthetic trip started; original fixed quote SGD 10.00."
+    },
+    {
+      "timestamp": "2026-10-01T10:14:00+08:00",
+      "event_type": "trip_completed",
+      "details": "Synthetic trip completed; charged SGD 15.00. No independent live traffic feed is supplied."
+    }
+  ],
+  "fare_breakdown": {
+    "currency": "SGD",
+    "pricing_model": "synthetic_fixed_quotes",
+    "reference_quote_cents": 1000,
+    "charged_total_cents": 1500,
+    "surcharges_cents": 0
+  },
+  "route_policy": {
+    "policy_origin": "team_authored_synthetic_not_official_Ryde",
+    "review_trigger_excess_ratio": 0.25,
+    "review_trigger_rule": "Sampled excess distance above the threshold triggers review, not an automatic finding of fault.",
+    "context_rule": "Consider rider approval and independently supported traffic or safety reasons before attributing the route change.",
+    "refund_rule": "Only after confirming an unjustified extra charge may the Judge recommend refunding the supported excess over the original quote.",
+    "missing_context_rule": "When a material justification cannot be verified, report the missing evidence for human review.",
+    "distance_method": "Provided synthetic sampled polylines; no road-network optimality claim."
+  }
+}

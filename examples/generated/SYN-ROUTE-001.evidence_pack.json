@@ -1,0 +1,158 @@
+{
+  "case_id": "SYN-ROUTE-001",
+  "dispute_type": "route_deviation",
+  "facts": [
+    {
+      "evidence_id": "E-001",
+      "fact": "1 GPS samples (2026-10-01T10:00:00+08:00) match the recorded pickup coordinates and report speed 0 km/h. Samples do not establish uninterrupted observation between timestamps.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-002",
+      "fact": "rider's statement (not independently verified): I believe the driver used an unnecessarily long route. The original quote was SGD 10.00 but I was charged SGD 15.00. I would like the difference reviewed.",
+      "source": "dispute_ticket.description"
+    },
+    {
+      "evidence_id": "E-003",
+      "fact": "Trip record scheduled_time: 2026-10-01T10:00:00+08:00.",
+      "source": "trip_data"
+    },
+    {
+      "evidence_id": "E-004",
+      "fact": "Trip record driver_arrival_time: 2026-10-01T09:59:00+08:00.",
+      "source": "trip_data"
+    },
+    {
+      "evidence_id": "E-005",
+      "fact": "Trip record trip_start_time: 2026-10-01T10:00:00+08:00.",
+      "source": "trip_data"
+    },
+    {
+      "evidence_id": "E-006",
+      "fact": "Trip record trip_end_time: 2026-10-01T10:14:00+08:00.",
+      "source": "trip_data"
+    },
+    {
+      "evidence_id": "E-007",
+      "fact": "GPS record at 2026-10-01T10:00:00+08:00: lat=1.3, lng=103.8, speed_kmh=0, status=in_trip.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-008",
+      "fact": "GPS record at 2026-10-01T10:02:00+08:00: lat=1.3, lng=103.805, speed_kmh=24, status=in_trip.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-009",
+      "fact": "GPS record at 2026-10-01T10:05:00+08:00: lat=1.31, lng=103.805, speed_kmh=24, status=in_trip.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-010",
+      "fact": "GPS record at 2026-10-01T10:09:00+08:00: lat=1.31, lng=103.815, speed_kmh=24, status=in_trip.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-011",
+      "fact": "GPS record at 2026-10-01T10:12:00+08:00: lat=1.3, lng=103.815, speed_kmh=24, status=in_trip.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-012",
+      "fact": "GPS record at 2026-10-01T10:14:00+08:00: lat=1.3, lng=103.82, speed_kmh=0, status=in_trip.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-013",
+      "fact": "Communication log at 2026-10-01T10:03:00+08:00, sender=rider, type=message: Why are we turning away from the route shown in the app?",
+      "source": "chat_logs"
+    },
+    {
+      "evidence_id": "E-014",
+      "fact": "Communication log at 2026-10-01T10:04:00+08:00, sender=driver, type=message: I believe traffic is worse on the direct route. I am taking another way.",
+      "source": "chat_logs"
+    },
+    {
+      "evidence_id": "E-015",
+      "fact": "Communication log at 2026-10-01T10:05:00+08:00, sender=rider, type=message: I did not request a longer route. Please explain any additional charge.",
+      "source": "chat_logs"
+    },
+    {
+      "evidence_id": "E-016",
+      "fact": "App event at 2026-10-01T10:00:00+08:00, type=trip_started, reports: Synthetic trip started; original fixed quote SGD 10.00.",
+      "source": "app_events"
+    },
+    {
+      "evidence_id": "E-017",
+      "fact": "App event at 2026-10-01T10:14:00+08:00, type=trip_completed, reports: Synthetic trip completed; charged SGD 15.00. No independent live traffic feed is supplied.",
+      "source": "app_events"
+    },
+    {
+      "evidence_id": "E-018",
+      "fact": "Historical rider profile metadata: {\"account_age_days\": 100, \"avg_rating\": 4.5, \"dispute_history\": {\"total_disputes\": 0}, \"fraud_flags\": 0, \"rider_id\": \"R-SYN-001\", \"total_trips\": 20}. Historical metadata alone does not establish responsibility for this dispute.",
+      "source": "rider_profile"
+    },
+    {
+      "evidence_id": "E-019",
+      "fact": "Historical driver profile metadata: {\"account_age_days\": 400, \"avg_rating\": 4.5, \"dispute_history\": {\"total_disputes\": 0}, \"driver_id\": \"D-SYN-001\", \"fraud_flags\": 0, \"total_trips\": 800}. Historical metadata alone does not establish responsibility for this dispute.",
+      "source": "driver_profile"
+    },
+    {
+      "evidence_id": "E-020",
+      "fact": "Provided reference_route: [{\"lat\": 1.3, \"lng\": 103.8}, {\"lat\": 1.3, \"lng\": 103.81}, {\"lat\": 1.3, \"lng\": 103.82}]",
+      "source": "reference_route"
+    },
+    {
+      "evidence_id": "E-021",
+      "fact": "Provided fare_breakdown: {\"charged_total_cents\": 1500, \"currency\": \"SGD\", \"pricing_model\": \"synthetic_fixed_quotes\", \"reference_quote_cents\": 1000, \"surcharges_cents\": 0}",
+      "source": "fare_breakdown"
+    },
+    {
+      "evidence_id": "E-022",
+      "fact": "Provided dataset_metadata: {\"data_origin\": \"synthetic\", \"limitations\": [\"Invented participants, times, coordinates, quotations and rules.\", \"Reference geometry is synthetic and is not asserted to be road-network optimal.\", \"No ground-truth ruling is supplied; distance alone does not establish responsibility.\"], \"policy_origin\": \"team_authored_synthetic\", \"purpose\": \"Evidence and tools integration only\", \"version\": \"1.0\"}",
+      "source": "dataset_metadata"
+    },
+    {
+      "evidence_id": "E-023",
+      "fact": "Sampled actual polyline length is 4447.226 m; provided reference is 2223.329 m; excess ratio is 1.000255. Neither distance alone nor this reference establishes an unauthorized detour.",
+      "source": "derived.route_comparison"
+    }
+  ],
+  "policy": [
+    {
+      "policy_id": "P-001",
+      "rule": "context_rule = \"Consider rider approval and independently supported traffic or safety reasons before attributing the route change.\"",
+      "source": "route_policy"
+    },
+    {
+      "policy_id": "P-002",
+      "rule": "distance_method = \"Provided synthetic sampled polylines; no road-network optimality claim.\"",
+      "source": "route_policy"
+    },
+    {
+      "policy_id": "P-003",
+      "rule": "missing_context_rule = \"When a material justification cannot be verified, report the missing evidence for human review.\"",
+      "source": "route_policy"
+    },
+    {
+      "policy_id": "P-004",
+      "rule": "policy_origin = \"team_authored_synthetic_not_official_Ryde\"",
+      "source": "route_policy"
+    },
+    {
+      "policy_id": "P-005",
+      "rule": "refund_rule = \"Only after confirming an unjustified extra charge may the Judge recommend refunding the supported excess over the original quote.\"",
+      "source": "route_policy"
+    },
+    {
+      "policy_id": "P-006",
+      "rule": "review_trigger_excess_ratio = 0.25",
+      "source": "route_policy"
+    },
+    {
+      "policy_id": "P-007",
+      "rule": "review_trigger_rule = \"Sampled excess distance above the threshold triggers review, not an automatic finding of fault.\"",
+      "source": "route_policy"
+    }
+  ]
+}

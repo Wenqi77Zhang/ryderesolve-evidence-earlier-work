@@ -1,0 +1,208 @@
+{
+  "case_id": "DISP-002",
+  "dispute_type": "no_show_charge",
+  "facts": [
+    {
+      "evidence_id": "E-001",
+      "fact": "4 GPS samples (2026-09-13T08:43:00+08:00, 2026-09-13T08:45:00+08:00, 2026-09-13T08:48:00+08:00, 2026-09-13T08:51:00+08:00) match the recorded pickup coordinates and report speed 0 km/h. Samples do not establish uninterrupted observation between timestamps.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-002",
+      "fact": "rider's statement (not independently verified): I was at the pickup point at Tiong Bahru Plaza on time but the driver never showed up. I waited 10 minutes at the lobby and couldn't find the car. The app charged me a $5.00 cancellation fee for a 'no-show' which is completely unfair — I was there, the driver was not. I want the charge reversed immediately.",
+      "source": "dispute_ticket.description"
+    },
+    {
+      "evidence_id": "E-003",
+      "fact": "Trip record scheduled_time: 2026-09-13T08:45:00+08:00.",
+      "source": "trip_data"
+    },
+    {
+      "evidence_id": "E-004",
+      "fact": "Trip record driver_arrival_time: 2026-09-13T08:43:00+08:00.",
+      "source": "trip_data"
+    },
+    {
+      "evidence_id": "E-005",
+      "fact": "Trip record driver_wait_start: 2026-09-13T08:43:00+08:00.",
+      "source": "trip_data"
+    },
+    {
+      "evidence_id": "E-006",
+      "fact": "Trip record cancellation_time: 2026-09-13T08:51:00+08:00.",
+      "source": "trip_data"
+    },
+    {
+      "evidence_id": "E-007",
+      "fact": "Trip record cancellation_reason: rider_no_show.",
+      "source": "trip_data"
+    },
+    {
+      "evidence_id": "E-008",
+      "fact": "Trip record cancellation_fee: 5.0.",
+      "source": "trip_data"
+    },
+    {
+      "evidence_id": "E-009",
+      "fact": "GPS record at 2026-09-13T08:31:00+08:00: lat=1.292, lng=103.845, speed_kmh=42, status=en_route.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-010",
+      "fact": "GPS record at 2026-09-13T08:34:00+08:00: lat=1.289, lng=103.843, speed_kmh=38, status=en_route.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-011",
+      "fact": "GPS record at 2026-09-13T08:38:00+08:00: lat=1.2865, lng=103.84, speed_kmh=25, status=en_route.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-012",
+      "fact": "GPS record at 2026-09-13T08:41:00+08:00: lat=1.2852, lng=103.8388, speed_kmh=12, status=en_route.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-013",
+      "fact": "GPS record at 2026-09-13T08:43:00+08:00: lat=1.2847, lng=103.8382, speed_kmh=0, status=arrived.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-014",
+      "fact": "GPS record at 2026-09-13T08:45:00+08:00: lat=1.2847, lng=103.8382, speed_kmh=0, status=waiting.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-015",
+      "fact": "GPS record at 2026-09-13T08:48:00+08:00: lat=1.2847, lng=103.8382, speed_kmh=0, status=waiting.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-016",
+      "fact": "GPS record at 2026-09-13T08:51:00+08:00: lat=1.2847, lng=103.8382, speed_kmh=0, status=cancelled.",
+      "source": "gps_telemetry"
+    },
+    {
+      "evidence_id": "E-017",
+      "fact": "Communication log at 2026-09-13T08:43:00+08:00, sender=driver, type=message: I've arrived at the pickup point, I'm at the lobby area.",
+      "source": "chat_logs"
+    },
+    {
+      "evidence_id": "E-018",
+      "fact": "Communication log at 2026-09-13T08:45:20+08:00, sender=driver, type=message: I'm waiting at the lobby area, white Honda HR-V plate SGP 4521 M.",
+      "source": "chat_logs"
+    },
+    {
+      "evidence_id": "E-019",
+      "fact": "Communication log at 2026-09-13T08:47:05+08:00, sender=driver, type=call: Outgoing call to rider — not answered (rang 22s, no response).",
+      "source": "chat_logs"
+    },
+    {
+      "evidence_id": "E-020",
+      "fact": "Communication log at 2026-09-13T08:49:30+08:00, sender=driver, type=message: Hi, are you coming down? I've been waiting a while.",
+      "source": "chat_logs"
+    },
+    {
+      "evidence_id": "E-021",
+      "fact": "Communication log at 2026-09-13T08:50:45+08:00, sender=driver, type=message: Please let me know, otherwise I'll have to cancel the trip.",
+      "source": "chat_logs"
+    },
+    {
+      "evidence_id": "E-022",
+      "fact": "Communication log at 2026-09-13T08:51:00+08:00, sender=system, type=system: Trip cancelled by driver. Reason: rider_no_show. Cancellation fee of $5.00 applied.",
+      "source": "chat_logs"
+    },
+    {
+      "evidence_id": "E-023",
+      "fact": "App event at 2026-09-13T08:30:00+08:00, type=booking_confirmed, reports: Rider R-7823 booked trip TRIP-2026-09945 from Tiong Bahru Plaza to VivoCity. Scheduled pickup 08:45.",
+      "source": "app_events"
+    },
+    {
+      "evidence_id": "E-024",
+      "fact": "App event at 2026-09-13T08:30:15+08:00, type=driver_assigned, reports: Driver D-2398 (Lim Wei Ming, Honda HR-V SGP 4521 M) assigned. ETA 13 min.",
+      "source": "app_events"
+    },
+    {
+      "evidence_id": "E-025",
+      "fact": "App event at 2026-09-13T08:30:20+08:00, type=driver_en_route, reports: Driver started navigating to pickup location. Live tracking enabled.",
+      "source": "app_events"
+    },
+    {
+      "evidence_id": "E-026",
+      "fact": "App event at 2026-09-13T08:43:00+08:00, type=driver_arrived, reports: Driver GPS within 10m of pickup point. Speed 0 km/h. Auto-arrival confirmed.",
+      "source": "app_events"
+    },
+    {
+      "evidence_id": "E-027",
+      "fact": "App event at 2026-09-13T08:43:05+08:00, type=rider_notified, reports: Push notification + in-app alert sent to rider: 'Your driver has arrived.'",
+      "source": "app_events"
+    },
+    {
+      "evidence_id": "E-028",
+      "fact": "App event at 2026-09-13T08:43:10+08:00, type=wait_timer_started, reports: Free wait timer started. 5 min free wait period ends at 08:48.",
+      "source": "app_events"
+    },
+    {
+      "evidence_id": "E-029",
+      "fact": "App event at 2026-09-13T08:47:05+08:00, type=driver_called_rider, reports: Driver initiated in-app call to rider. Call rang 22s, no answer.",
+      "source": "app_events"
+    },
+    {
+      "evidence_id": "E-030",
+      "fact": "App event at 2026-09-13T08:48:10+08:00, type=wait_timer_expired, reports: Free 5-min wait period expired. Rider had not boarded. Cancellation fee now applicable per policy.",
+      "source": "app_events"
+    },
+    {
+      "evidence_id": "E-031",
+      "fact": "App event at 2026-09-13T08:51:00+08:00, type=cancellation_fee_applied, reports: No-show threshold (8 min) reached. $5.00 cancellation fee charged to rider payment method (e-wallet).",
+      "source": "app_events"
+    },
+    {
+      "evidence_id": "E-032",
+      "fact": "App event at 2026-09-13T08:51:05+08:00, type=driver_released, reports: Driver D-2398 released from trip. Trip status: cancelled (rider_no_show).",
+      "source": "app_events"
+    },
+    {
+      "evidence_id": "E-033",
+      "fact": "Historical rider profile metadata: {\"account_age_days\": 210, \"avg_rating\": 3.9, \"dispute_history\": {\"rejected\": 3, \"total_disputes\": 4, \"upheld\": 1}, \"fraud_flag_details\": \"flagged_for_frequent_late_cancellations\", \"fraud_flags\": 1, \"rider_id\": \"R-7823\", \"total_trips\": 34}. Historical metadata alone does not establish responsibility for this dispute.",
+      "source": "rider_profile"
+    },
+    {
+      "evidence_id": "E-034",
+      "fact": "Historical driver profile metadata: {\"account_age_days\": 900, \"avg_rating\": 4.9, \"dispute_history\": {\"rejected\": 1, \"total_disputes\": 1, \"upheld_against\": 0}, \"driver_id\": \"D-2398\", \"fraud_flags\": 0, \"total_trips\": 3201}. Historical metadata alone does not establish responsibility for this dispute.",
+      "source": "driver_profile"
+    },
+    {
+      "evidence_id": "E-035",
+      "fact": "Computed elapsed time from /trip_data/driver_wait_start to the recorded cancellation is 480 seconds. This calculation does not determine the applicable policy clock.",
+      "source": "derived.wait_duration"
+    },
+    {
+      "evidence_id": "E-036",
+      "fact": "Computed elapsed time from /app_events/5/timestamp to the recorded cancellation is 470 seconds. This calculation does not determine the applicable policy clock.",
+      "source": "derived.wait_duration"
+    }
+  ],
+  "policy": [
+    {
+      "policy_id": "P-001",
+      "rule": "cancellation_fee_after_wait = 5.0",
+      "source": "cancellation_policy"
+    },
+    {
+      "policy_id": "P-002",
+      "rule": "fee_goes_to = \"driver_compensation\"",
+      "source": "cancellation_policy"
+    },
+    {
+      "policy_id": "P-003",
+      "rule": "free_wait_time_min = 5",
+      "source": "cancellation_policy"
+    },
+    {
+      "policy_id": "P-004",
+      "rule": "no_show_threshold_min = 8",
+      "source": "cancellation_policy"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "cases": [
+    {
+      "case_id": "DISP-002",
+      "dispute_type": "no_show_charge",
+      "data_origin": "organizer_sample",
+      "policy_origin": "organizer_sample",
+      "path": "official/DISP-002.json",
+      "source_url": "https://drive.google.com/file/d/1f6KAuu5ZFqBKHvsAVlg-ZC_FgHazbqNF/view",
+      "description": "Unchanged JSON extracted from the supplied organizer sample; timing ambiguity preserved."
+    },
+    {
+      "case_id": "SYN-ROUTE-001",
+      "dispute_type": "route_deviation",
+      "data_origin": "synthetic",
+      "policy_origin": "team_authored_synthetic",
+      "path": "synthetic/SYN-ROUTE-001.json",
+      "source_url": null,
+      "description": "Team-authored synthetic route dispute for integration; no official Ryde policy or trip data."
+    }
+  ]
+}

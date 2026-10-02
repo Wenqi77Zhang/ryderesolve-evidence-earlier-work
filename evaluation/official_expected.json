@@ -1,0 +1,11 @@
+{
+  "use": "Evaluation-only organizer annotation. Never load into Advocate/Judge input.",
+  "source_url": "https://drive.google.com/file/d/1f6KAuu5ZFqBKHvsAVlg-ZC_FgHazbqNF/view",
+  "cases": [
+    {
+      "case_id": "DISP-002",
+      "organizer_expected_decision": "uphold_charge",
+      "caveat": "The label does not resolve the 480s/470s timing discrepancy or unspecified policy clock basis. Report that ambiguity independently; this single label is not an accuracy benchmark."
+    }
+  ]
+}

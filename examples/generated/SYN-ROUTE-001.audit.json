@@ -1,0 +1,48 @@
+{
+  "case_id": "SYN-ROUTE-001",
+  "source_sha256": "d11db7ad19152a47877cc793069dbaf9e1ef2f5e4bd7b796b8676601b372bb7c",
+  "data_origin": "synthetic",
+  "policy_origin": "team_authored_synthetic",
+  "source_url": null,
+  "issues": [
+    {
+      "code": "SYNTHETIC_SCENARIO",
+      "severity": "info",
+      "message": "Team-authored synthetic case and policy, not official Ryde trip records or rules.",
+      "source_refs": [
+        "/dataset_metadata"
+      ]
+    }
+  ],
+  "requires_policy_or_data_review": false,
+  "metrics": {
+    "route_comparison": {
+      "actual_sampled_length_m": 4447.226,
+      "reference_sampled_length_m": 2223.329,
+      "sampled_excess_m": 2223.897,
+      "sampled_excess_ratio": 1.000255,
+      "start_offset_m": 0.0,
+      "end_offset_m": 0.0,
+      "method": "sum_of_haversine_segments; Earth radius 6371008.8 m",
+      "limitation": "Sampled polyline lengths, not a map-provider optimal route or proof of driver fault.",
+      "source_refs": [
+        "/gps_telemetry",
+        "/reference_route"
+      ]
+    },
+    "fare_difference": {
+      "currency": "SGD",
+      "difference_cents": 500,
+      "source_refs": [
+        "/fare_breakdown/charged_total_cents",
+        "/fare_breakdown/reference_quote_cents"
+      ],
+      "limitation": "Arithmetic difference, not an awarded refund."
+    }
+  },
+  "notes": [
+    "This report does not decide the dispute or supply model confidence.",
+    "Party statements and app-event conclusions are attributed records, not automatically established facts.",
+    "Evidence IDs are scoped to case_id and source_sha256; do not reuse references after a source update."
+  ]
+}

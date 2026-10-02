@@ -1,0 +1,254 @@
+{
+  "case_id": "DISP-002",
+  "source_sha256": "6712c5be3edf06bf27fccdaabb7b46ecf9936dba56758b7db5e74e40599579ca",
+  "evidence": {
+    "E-001": {
+      "kind": "derived_observation",
+      "source_refs": [
+        "/gps_telemetry/4",
+        "/gps_telemetry/5",
+        "/gps_telemetry/6",
+        "/gps_telemetry/7",
+        "/trip_data/pickup_location"
+      ]
+    },
+    "E-002": {
+      "kind": "party_statement",
+      "source_refs": [
+        "/dispute_ticket/description"
+      ]
+    },
+    "E-003": {
+      "kind": "record",
+      "source_refs": [
+        "/trip_data/scheduled_time"
+      ]
+    },
+    "E-004": {
+      "kind": "record",
+      "source_refs": [
+        "/trip_data/driver_arrival_time"
+      ]
+    },
+    "E-005": {
+      "kind": "record",
+      "source_refs": [
+        "/trip_data/driver_wait_start"
+      ]
+    },
+    "E-006": {
+      "kind": "record",
+      "source_refs": [
+        "/trip_data/cancellation_time"
+      ]
+    },
+    "E-007": {
+      "kind": "record",
+      "source_refs": [
+        "/trip_data/cancellation_reason"
+      ]
+    },
+    "E-008": {
+      "kind": "record",
+      "source_refs": [
+        "/trip_data/cancellation_fee"
+      ]
+    },
+    "E-009": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/0"
+      ]
+    },
+    "E-010": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/1"
+      ]
+    },
+    "E-011": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/2"
+      ]
+    },
+    "E-012": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/3"
+      ]
+    },
+    "E-013": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/4"
+      ]
+    },
+    "E-014": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/5"
+      ]
+    },
+    "E-015": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/6"
+      ]
+    },
+    "E-016": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/7"
+      ]
+    },
+    "E-017": {
+      "kind": "communication_record",
+      "source_refs": [
+        "/chat_logs/0"
+      ]
+    },
+    "E-018": {
+      "kind": "communication_record",
+      "source_refs": [
+        "/chat_logs/1"
+      ]
+    },
+    "E-019": {
+      "kind": "communication_record",
+      "source_refs": [
+        "/chat_logs/2"
+      ]
+    },
+    "E-020": {
+      "kind": "communication_record",
+      "source_refs": [
+        "/chat_logs/3"
+      ]
+    },
+    "E-021": {
+      "kind": "communication_record",
+      "source_refs": [
+        "/chat_logs/4"
+      ]
+    },
+    "E-022": {
+      "kind": "communication_record",
+      "source_refs": [
+        "/chat_logs/5"
+      ]
+    },
+    "E-023": {
+      "kind": "event_record",
+      "source_refs": [
+        "/app_events/0"
+      ]
+    },
+    "E-024": {
+      "kind": "event_record",
+      "source_refs": [
+        "/app_events/1"
+      ]
+    },
+    "E-025": {
+      "kind": "event_record",
+      "source_refs": [
+        "/app_events/2"
+      ]
+    },
+    "E-026": {
+      "kind": "event_record",
+      "source_refs": [
+        "/app_events/3"
+      ]
+    },
+    "E-027": {
+      "kind": "event_record",
+      "source_refs": [
+        "/app_events/4"
+      ]
+    },
+    "E-028": {
+      "kind": "event_record",
+      "source_refs": [
+        "/app_events/5"
+      ]
+    },
+    "E-029": {
+      "kind": "event_record",
+      "source_refs": [
+        "/app_events/6"
+      ]
+    },
+    "E-030": {
+      "kind": "event_record",
+      "source_refs": [
+        "/app_events/7"
+      ]
+    },
+    "E-031": {
+      "kind": "event_record",
+      "source_refs": [
+        "/app_events/8"
+      ]
+    },
+    "E-032": {
+      "kind": "event_record",
+      "source_refs": [
+        "/app_events/9"
+      ]
+    },
+    "E-033": {
+      "kind": "historical_context",
+      "source_refs": [
+        "/rider_profile"
+      ]
+    },
+    "E-034": {
+      "kind": "historical_context",
+      "source_refs": [
+        "/driver_profile"
+      ]
+    },
+    "E-035": {
+      "kind": "derived_metric",
+      "source_refs": [
+        "/trip_data/driver_wait_start",
+        "/trip_data/cancellation_time"
+      ]
+    },
+    "E-036": {
+      "kind": "derived_metric",
+      "source_refs": [
+        "/app_events/5/timestamp",
+        "/trip_data/cancellation_time"
+      ]
+    }
+  },
+  "policy": {
+    "P-001": {
+      "source_refs": [
+        "/cancellation_policy/cancellation_fee_after_wait"
+      ],
+      "policy_origin": "organizer_sample"
+    },
+    "P-002": {
+      "source_refs": [
+        "/cancellation_policy/fee_goes_to"
+      ],
+      "policy_origin": "organizer_sample"
+    },
+    "P-003": {
+      "source_refs": [
+        "/cancellation_policy/free_wait_time_min"
+      ],
+      "policy_origin": "organizer_sample"
+    },
+    "P-004": {
+      "source_refs": [
+        "/cancellation_policy/no_show_threshold_min"
+      ],
+      "policy_origin": "organizer_sample"
+    }
+  }
+}

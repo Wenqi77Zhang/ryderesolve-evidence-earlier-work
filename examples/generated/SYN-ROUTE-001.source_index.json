@@ -1,0 +1,190 @@
+{
+  "case_id": "SYN-ROUTE-001",
+  "source_sha256": "d11db7ad19152a47877cc793069dbaf9e1ef2f5e4bd7b796b8676601b372bb7c",
+  "evidence": {
+    "E-001": {
+      "kind": "derived_observation",
+      "source_refs": [
+        "/gps_telemetry/0",
+        "/trip_data/pickup_location"
+      ]
+    },
+    "E-002": {
+      "kind": "party_statement",
+      "source_refs": [
+        "/dispute_ticket/description"
+      ]
+    },
+    "E-003": {
+      "kind": "record",
+      "source_refs": [
+        "/trip_data/scheduled_time"
+      ]
+    },
+    "E-004": {
+      "kind": "record",
+      "source_refs": [
+        "/trip_data/driver_arrival_time"
+      ]
+    },
+    "E-005": {
+      "kind": "record",
+      "source_refs": [
+        "/trip_data/trip_start_time"
+      ]
+    },
+    "E-006": {
+      "kind": "record",
+      "source_refs": [
+        "/trip_data/trip_end_time"
+      ]
+    },
+    "E-007": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/0"
+      ]
+    },
+    "E-008": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/1"
+      ]
+    },
+    "E-009": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/2"
+      ]
+    },
+    "E-010": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/3"
+      ]
+    },
+    "E-011": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/4"
+      ]
+    },
+    "E-012": {
+      "kind": "record",
+      "source_refs": [
+        "/gps_telemetry/5"
+      ]
+    },
+    "E-013": {
+      "kind": "communication_record",
+      "source_refs": [
+        "/chat_logs/0"
+      ]
+    },
+    "E-014": {
+      "kind": "communication_record",
+      "source_refs": [
+        "/chat_logs/1"
+      ]
+    },
+    "E-015": {
+      "kind": "communication_record",
+      "source_refs": [
+        "/chat_logs/2"
+      ]
+    },
+    "E-016": {
+      "kind": "event_record",
+      "source_refs": [
+        "/app_events/0"
+      ]
+    },
+    "E-017": {
+      "kind": "event_record",
+      "source_refs": [
+        "/app_events/1"
+      ]
+    },
+    "E-018": {
+      "kind": "historical_context",
+      "source_refs": [
+        "/rider_profile"
+      ]
+    },
+    "E-019": {
+      "kind": "historical_context",
+      "source_refs": [
+        "/driver_profile"
+      ]
+    },
+    "E-020": {
+      "kind": "record",
+      "source_refs": [
+        "/reference_route"
+      ]
+    },
+    "E-021": {
+      "kind": "record",
+      "source_refs": [
+        "/fare_breakdown"
+      ]
+    },
+    "E-022": {
+      "kind": "provenance",
+      "source_refs": [
+        "/dataset_metadata"
+      ]
+    },
+    "E-023": {
+      "kind": "derived_metric",
+      "source_refs": [
+        "/gps_telemetry",
+        "/reference_route"
+      ]
+    }
+  },
+  "policy": {
+    "P-001": {
+      "source_refs": [
+        "/route_policy/context_rule"
+      ],
+      "policy_origin": "team_authored_synthetic"
+    },
+    "P-002": {
+      "source_refs": [
+        "/route_policy/distance_method"
+      ],
+      "policy_origin": "team_authored_synthetic"
+    },
+    "P-003": {
+      "source_refs": [
+        "/route_policy/missing_context_rule"
+      ],
+      "policy_origin": "team_authored_synthetic"
+    },
+    "P-004": {
+      "source_refs": [
+        "/route_policy/policy_origin"
+      ],
+      "policy_origin": "team_authored_synthetic"
+    },
+    "P-005": {
+      "source_refs": [
+        "/route_policy/refund_rule"
+      ],
+      "policy_origin": "team_authored_synthetic"
+    },
+    "P-006": {
+      "source_refs": [
+        "/route_policy/review_trigger_excess_ratio"
+      ],
+      "policy_origin": "team_authored_synthetic"
+    },
+    "P-007": {
+      "source_refs": [
+        "/route_policy/review_trigger_rule"
+      ],
+      "policy_origin": "team_authored_synthetic"
+    }
+  }
+}
