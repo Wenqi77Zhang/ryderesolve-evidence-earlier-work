@@ -116,6 +116,11 @@
       "evidence_id": "E-023",
       "fact": "Sampled actual polyline length is 4447.226 m; provided reference is 2223.329 m; excess ratio is 1.000255. Neither distance alone nor this reference establishes an unauthorized detour.",
       "source": "derived.route_comparison"
+    },
+    {
+      "evidence_id": "E-024",
+      "fact": "Recorded trip context: {\"driver_id\": \"D-SYN-001\", \"dropoff_location\": {\"lat\": 1.3, \"lng\": 103.82, \"name\": \"Synthetic Dropoff B\"}, \"pickup_location\": {\"lat\": 1.3, \"lng\": 103.8, \"name\": \"Synthetic Pickup A\"}, \"rider_id\": \"R-SYN-001\", \"trip_id\": \"TRIP-SYN-ROUTE-001\"}",
+      "source": "trip_data"
     }
   ],
   "policy": [

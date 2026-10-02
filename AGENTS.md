@@ -10,7 +10,8 @@ Read `docs/PROJECT_BASELINE.md`, `docs/INTEGRATION.md`, and `docs/SOURCE_AUDIT.m
 - Keep arithmetic and reference resolution deterministic. Do not silently infer a no-show policy clock or mutate conflicting records.
 - Frozen names: case_id, evidence_id, evidence_refs, policy_refs, decision. Keep the agreed nesting; preserve policy_id for resolving policy_refs. Optional extension fields are compatible.
 - Run meaningful unit/contract/HTTP tests after relevant changes. Inspect the UI when its behavior changes.
-- Use a project-local .venv. Runtime dependencies are currently standard-library only.
+- Use a project-local .venv and constraints.txt. Runtime validation uses the published JSON Schemas through jsonschema; do not reintroduce a separate partial schema implementation.
+- Read docs/HARDENING_REVIEW.md for reproduced failure cases and pending team decisions. Use prepare_case and snapshot_id to bind source data, normalization version and provenance. Bump NORMALIZER_VERSION after changes to normalization/index/audit semantics.
 - No credentials, real passenger records, private emails, or participant WhatsApp invite links in commits.
 - Record implementation, local verification, team-model integration, and competition compliance as separate statuses.
 - User communication: call the user 琪琪, explain unfamiliar terms briefly, and end replies with 喵~. Do not invent mentor endorsement or team contributions.

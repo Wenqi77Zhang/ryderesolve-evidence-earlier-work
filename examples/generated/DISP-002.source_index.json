@@ -1,6 +1,8 @@
 {
   "case_id": "DISP-002",
   "source_sha256": "6712c5be3edf06bf27fccdaabb7b46ecf9936dba56758b7db5e74e40599579ca",
+  "snapshot_id": "7e30f1a73924807803f201f5813d92342c135e2025e146b063081a68575b65b7",
+  "normalizer_version": "0.2.0",
   "evidence": {
     "E-001": {
       "kind": "derived_observation",
@@ -222,6 +224,23 @@
       "source_refs": [
         "/app_events/5/timestamp",
         "/trip_data/cancellation_time"
+      ]
+    },
+    "E-037": {
+      "kind": "derived_metric",
+      "source_refs": [
+        "/trip_data/scheduled_time",
+        "/trip_data/cancellation_time"
+      ]
+    },
+    "E-038": {
+      "kind": "trip_context",
+      "source_refs": [
+        "/trip_data/trip_id",
+        "/trip_data/rider_id",
+        "/trip_data/driver_id",
+        "/trip_data/pickup_location",
+        "/trip_data/dropoff_location"
       ]
     }
   },

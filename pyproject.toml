@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ryderesolve-evidence-tools"
-version = "0.1.0"
+version = "0.2.0"
 description = "Traceable evidence and read-only tools for the Ryde hackathon track"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = ["jsonschema>=4.23,<5"]
 
 [project.optional-dependencies]
-dev = ["jsonschema>=4.23,<5"]
+dev = []
 
 [project.scripts]
 ryde-evidence = "ryderesolve_evidence.cli:main"
@@ -19,4 +19,4 @@ ryde-evidence = "ryderesolve_evidence.cli:main"
 include = ["ryderesolve_evidence*"]
 
 [tool.setuptools.package-data]
-ryderesolve_evidence = ["data/*.json", "data/official/*.json", "data/synthetic/*.json", "contracts/*.json", "ui.html"]
+ryderesolve_evidence = ["data/*.json", "data/official/*.json", "data/synthetic/*.json", "contracts/*.json", "ui.html", "ui.js"]

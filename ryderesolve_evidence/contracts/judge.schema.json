@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Judge Output v0.1",
+  "title": "Judge Output v0.2",
   "type": "object",
   "required": [
     "case_id",
@@ -10,11 +10,13 @@
   "properties": {
     "case_id": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "pattern": "\\S"
     },
     "decision": {
       "type": "string",
-      "minLength": 1
+      "minLength": 1,
+      "pattern": "\\S"
     },
     "findings": {
       "type": "array",
@@ -28,13 +30,15 @@
         "properties": {
           "finding": {
             "type": "string",
-            "minLength": 1
+            "minLength": 1,
+            "pattern": "\\S"
           },
           "evidence_refs": {
             "type": "array",
             "items": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "\\S"
             },
             "uniqueItems": true
           },
@@ -42,7 +46,8 @@
             "type": "array",
             "items": {
               "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "pattern": "\\S"
             },
             "uniqueItems": true
           }
@@ -69,7 +74,8 @@
       "type": "array",
       "items": {
         "type": "string",
-        "minLength": 1
+        "minLength": 1,
+        "pattern": "\\S"
       }
     }
   },

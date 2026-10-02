@@ -99,7 +99,7 @@ class EvidenceTests(unittest.TestCase):
     def test_catalog_cannot_escape_data_directory(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            (root / "catalog.json").write_text(json.dumps({"cases": [{"case_id":"X", "path":"../outside.json", "dispute_type":"no_show_charge", "data_origin":"organizer_sample"}]}))
+            (root / "catalog.json").write_text(json.dumps({"cases": [{"case_id":"X", "path":"../outside.json", "dispute_type":"no_show_charge", "data_origin":"organizer_sample", "policy_origin":"organizer_sample"}]}))
             with self.assertRaises(InputError):
                 CaseRepository(root).load_case("X")
 
@@ -159,7 +159,9 @@ class EvidenceTests(unittest.TestCase):
         self.raw["app_events"].insert(6, event)
         bundle = build_bundle(self.raw)
         self.assertIn("MULTIPLE_WAIT_START_EVENTS", self.codes(bundle))
-        self.assertEqual(len(bundle.audit["metrics"]), 3)
+        self.assertEqual(bundle.audit["metrics"]["trip_wait"]["seconds"], 480)
+        self.assertEqual(bundle.audit["metrics"]["app_wait_5"]["seconds"], 470)
+        self.assertEqual(bundle.audit["metrics"]["app_wait_6"]["seconds"], 469)
 
     def test_historical_profiles_are_context_not_a_verdict(self):
         bundle = self.tools.repository.bundle("DISP-002")

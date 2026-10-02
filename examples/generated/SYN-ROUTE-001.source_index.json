@@ -1,6 +1,8 @@
 {
   "case_id": "SYN-ROUTE-001",
   "source_sha256": "d11db7ad19152a47877cc793069dbaf9e1ef2f5e4bd7b796b8676601b372bb7c",
+  "snapshot_id": "0c88315da7121b2a26957b7b678b30103809cb8fc0f157f2f40da1dfda48bec9",
+  "normalizer_version": "0.2.0",
   "evidence": {
     "E-001": {
       "kind": "derived_observation",
@@ -138,8 +140,25 @@
     "E-023": {
       "kind": "derived_metric",
       "source_refs": [
-        "/gps_telemetry",
-        "/reference_route"
+        "/gps_telemetry/0",
+        "/gps_telemetry/1",
+        "/gps_telemetry/2",
+        "/gps_telemetry/3",
+        "/gps_telemetry/4",
+        "/gps_telemetry/5",
+        "/reference_route",
+        "/trip_data/trip_start_time",
+        "/trip_data/trip_end_time"
+      ]
+    },
+    "E-024": {
+      "kind": "trip_context",
+      "source_refs": [
+        "/trip_data/trip_id",
+        "/trip_data/rider_id",
+        "/trip_data/driver_id",
+        "/trip_data/pickup_location",
+        "/trip_data/dropoff_location"
       ]
     }
   },

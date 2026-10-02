@@ -181,6 +181,16 @@
       "evidence_id": "E-036",
       "fact": "Computed elapsed time from /app_events/5/timestamp to the recorded cancellation is 470 seconds. This calculation does not determine the applicable policy clock.",
       "source": "derived.wait_duration"
+    },
+    {
+      "evidence_id": "E-037",
+      "fact": "Recorded cancellation is 360 seconds after scheduled pickup. This does not select the billable waiting start.",
+      "source": "derived.scheduled_pickup_elapsed"
+    },
+    {
+      "evidence_id": "E-038",
+      "fact": "Recorded trip context: {\"driver_id\": \"D-2398\", \"dropoff_location\": {\"lat\": 1.2648, \"lng\": 103.8223, \"name\": \"VivoCity\"}, \"pickup_location\": {\"lat\": 1.2847, \"lng\": 103.8382, \"name\": \"Tiong Bahru Plaza\"}, \"rider_id\": \"R-7823\", \"trip_id\": \"TRIP-2026-09945\"}",
+      "source": "trip_data"
     }
   ],
   "policy": [

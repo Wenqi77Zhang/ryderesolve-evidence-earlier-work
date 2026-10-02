@@ -7,7 +7,8 @@
       "policy_origin": "organizer_sample",
       "path": "official/DISP-002.json",
       "source_url": "https://drive.google.com/file/d/1f6KAuu5ZFqBKHvsAVlg-ZC_FgHazbqNF/view",
-      "description": "Unchanged JSON extracted from the supplied organizer sample; timing ambiguity preserved."
+      "description": "Unchanged JSON extracted from the supplied organizer sample; timing ambiguity preserved.",
+      "source_sha256": "6712c5be3edf06bf27fccdaabb7b46ecf9936dba56758b7db5e74e40599579ca"
     },
     {
       "case_id": "SYN-ROUTE-001",
@@ -16,7 +17,8 @@
       "policy_origin": "team_authored_synthetic",
       "path": "synthetic/SYN-ROUTE-001.json",
       "source_url": null,
-      "description": "Team-authored synthetic route dispute for integration; no official Ryde policy or trip data."
+      "description": "Team-authored synthetic route dispute for integration; no official Ryde policy or trip data.",
+      "source_sha256": "d11db7ad19152a47877cc793069dbaf9e1ef2f5e4bd7b796b8676601b372bb7c"
     }
   ]
 }

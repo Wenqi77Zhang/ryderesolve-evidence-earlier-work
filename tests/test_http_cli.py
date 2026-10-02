@@ -87,6 +87,41 @@ class HttpTests(unittest.TestCase):
         for path in ("/cases/DISP-002/evidence/E-999", "/cases/DISP-002/evidence/E-001?source_sha256="+"0"*64, "/cases/%2E%2E%2Fevaluation/raw"):
             self.assertEqual(self.request(path)[0],400)
 
+    def test_atomic_snapshot_http_round_trip_and_guard(self):
+        status, payload, _ = self.request("/cases/DISP-002/snapshot")
+        self.assertEqual(status,200)
+        snapshot = json.loads(payload)
+        self.assertEqual(snapshot["snapshot_id"], snapshot["audit"]["snapshot_id"])
+        path = "/cases/DISP-002/evidence/E-002?snapshot_id="
+        status, payload, _ = self.request(path + snapshot["snapshot_id"])
+        self.assertEqual(status,200)
+        self.assertEqual(json.loads(payload)["snapshot_id"],snapshot["snapshot_id"])
+        self.assertEqual(self.request(path + "0" * 64)[0],400)
+
+    def test_empty_duplicate_and_unknown_version_queries_fail(self):
+        for suffix in ("snapshot_id=", "source_sha256=", "snapshot_id="+"0"*64+"&snapshot_id="+"1"*64, "unexpected=value"):
+            with self.subTest(suffix=suffix):
+                self.assertEqual(self.request("/cases/DISP-002/evidence/E-002?"+suffix)[0],400)
+
+    def test_duplicate_deep_and_overflow_json_are_rejected_over_http(self):
+        for body in ('{"case_id":"DISP-002","case_id":"SYN-ROUTE-001"}', '{"case_id":1e400}', '['*70+'0'+']'*70):
+            self.assertEqual(self.request("/tools/load_case","POST",body,{"Content-Type":"application/json"})[0],400)
+
+    def test_ui_uses_external_script_and_restricts_inline_scripts(self):
+        status, html, headers = self.request("/")
+        self.assertEqual(status,200)
+        self.assertIn(b'<script src="/ui.js"', html)
+        self.assertIn("script-src 'self';",headers["Content-Security-Policy"])
+        status, _, headers = self.request("/ui.js")
+        self.assertEqual(status,200)
+        self.assertIn("application/javascript",headers["Content-Type"])
+
+    def test_malformed_optional_output_reports_schema_error_over_http(self):
+        body = json.dumps({"case_id":"DISP-002", "judge":{"case_id":"DISP-002","decision":"review","findings":[],"uncertainties":123}})
+        status, payload, _ = self.request("/tools/validate_outputs","POST",body,{"Content-Type":"application/json"})
+        self.assertEqual(status,200)
+        self.assertFalse(json.loads(payload)["structurally_valid"])
+
 
 class CliTests(unittest.TestCase):
     def run_cli(self, *args):
@@ -108,3 +143,17 @@ class CliTests(unittest.TestCase):
         result=self.run_cli("pack","UNKNOWN")
         self.assertEqual(result.returncode,2)
         self.assertIn("error",json.loads(result.stderr))
+
+    def test_prepare_cli_produces_versioned_snapshot(self):
+        result = self.run_cli("prepare", "DISP-002")
+        self.assertEqual(result.returncode,0,result.stderr)
+        snapshot = json.loads(result.stdout)
+        self.assertEqual(snapshot["snapshot_id"],snapshot["audit"]["snapshot_id"])
+
+    def test_invalid_optional_field_makes_validate_cli_fail(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "judge.json"
+            path.write_text(json.dumps({"case_id":"DISP-002","decision":"review","findings":[],"uncertainties":123}),encoding="utf-8")
+            result = self.run_cli("validate", "DISP-002", "--judge", str(path))
+            self.assertEqual(result.returncode,1,result.stderr)
+            self.assertFalse(json.loads(result.stdout)["structurally_valid"])
