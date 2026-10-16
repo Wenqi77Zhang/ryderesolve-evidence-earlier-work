@@ -1,6 +1,6 @@
 # Project working rules
 
-Read `docs/PROJECT_BASELINE.md`, `docs/INTEGRATION.md`, and `docs/SOURCE_AUDIT.md` before changing behavior. Preserve established team interfaces and keep this repository private.
+Read `docs/PROJECT_BASELINE.md`, `docs/INTEGRATION.md`, and `docs/SOURCE_AUDIT.md` before changing behavior. Preserve established team interfaces and this repository's role as a public record of earlier Evidence/Data + tools development. The owner authorized public visibility on 16 October 2026; privacy references in the original dated documents describe its earlier working context. The team repository has separate access controls.
 
 - Scope is Evidence/Data + read-only tools. Do not claim the full multi-agent product is implemented or tested.
 - Never feed `evaluation/` annotations or editorial expected outcomes into runtime case inputs.
