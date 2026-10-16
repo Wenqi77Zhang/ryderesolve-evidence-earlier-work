@@ -1,12 +1,60 @@
-# RydeResolve Evidence/Data + tools
+# RydeResolve — Earlier Evidence/Data + Tools Development
 
-这是琪琪负责的 **Evidence/Data + tools** 模块，用于 Tencent Cloud Hackathon Singapore 2026 的 Digital Native / Ryde 赛道。它将案例整理成中性证据，保留原始来源，供双方 Advocate、Judge 和展示层接入。
+This repository preserves **Wenqi Zhang's earlier development work on the Evidence/Data + tools module** for RydeResolve, a team project for Tencent Cloud Hackathon Singapore 2026. It contains the implemented standalone module, tests, source audits and handoff documentation created before integration into the shared team repository.
 
-当前为 **v0.2.0**，包含 **1 个主办方样例**（DISP-002 / No-Show Charge）及 **1 个明确标注的合成案例**（SYN-ROUTE-001 / Route Deviation）。实现使用 Python 3.12+；字段校验使用 jsonschema，版本记录在 constraints.txt；不同语言的队友可以通过 HTTP/JSON 接入。
+After this module was handed over, the team lead integrated it with the other members' work in **[Maple-0102/ryderesolve](https://github.com/Maple-0102/ryderesolve)**. Ongoing integrated development and the team's current deliverables are maintained there. This repository is retained to make the earlier module work and its original commit history traceable.
 
-## 第一次运行
+**Record:** standalone module v0.2.0, developed on 2 October 2026. Repository context updated on 16 October 2026; the original implementation, data and tests are retained.
 
-在 Windows PowerShell 中进入仓库目录，依次运行：
+## Relationship to the team project
+
+| Repository | Role |
+| --- | --- |
+| [Wenqi77Zhang/ryderesolve-evidence-tools](https://github.com/Wenqi77Zhang/ryderesolve-evidence-tools) | Original Evidence/Data + tools development, validation and handoff record. |
+| [Maple-0102/ryderesolve](https://github.com/Maple-0102/ryderesolve) | Shared team project integrating Evidence, Rider/Driver Advocates, Judge, orchestration and the application UI. |
+
+The team baseline imported the module under [`vendor/ryderesolve-evidence-tools/`](https://github.com/Maple-0102/ryderesolve/tree/2e6bea725e19febf119de81ddf17c60cc6d54661/vendor/ryderesolve-evidence-tools). Its core Python package, case data, contracts and tests match the corresponding files at this repository's original [`64b072a`](https://github.com/Wenqi77Zhang/ryderesolve-evidence-tools/commit/64b072abe4596d74e3809701753d99d76aa04f90) baseline. The standalone inspector UI and repository-level setup were not all carried into that import.
+
+The import appears in the team repository under the integrator's commit. The original development commits remain here under `Wenqi77Zhang`; the links below document that history across the two repositories. This record attributes the Evidence/Data + tools component to Wenqi's assigned work, while the integrated product remains a team project.
+
+## Development and integration history
+
+Dates below use Singapore time (UTC+8).
+
+| Date | Record | Scope |
+| --- | --- | --- |
+| 2 October 2026 | [`58f05ae`](https://github.com/Wenqi77Zhang/ryderesolve-evidence-tools/commit/58f05aee25239d66dd14af6e2708930097913bc8) | Implemented the traceable evidence module for the agreed dispute cases. |
+| 2 October 2026 | [`333c5ad`](https://github.com/Wenqi77Zhang/ryderesolve-evidence-tools/commit/333c5adb0193717c239724b8e1f4fa6264cceb5d) | Documented the repository synchronization workaround. |
+| 2 October 2026 | [`64b072a`](https://github.com/Wenqi77Zhang/ryderesolve-evidence-tools/commit/64b072abe4596d74e3809701753d99d76aa04f90) | Hardened evidence snapshots, schema validation and trip-window calculations. |
+| 13 October 2026 | [Team integration commit `2e6bea7`](https://github.com/Maple-0102/ryderesolve/commit/2e6bea725e19febf119de81ddf17c60cc6d54661) | The team lead integrated the Evidence, Advocate and Judge baseline in the shared repository. |
+| 16 October 2026 | [Team PR #2, merged](https://github.com/Maple-0102/ryderesolve/pull/2) | Wenqi's subsequent official-dataset and Ryde Policy v2.1 integration was merged into the team project. That later implementation is maintained there. |
+
+## Module scope and authorship
+
+Wenqi was responsible for the team's **Evidence/Data + tools** workstream: interpreting the supplied data, applying the agreed interfaces, and delivering a traceable evidence module for integration. Development, documentation and tests were assisted by Codex under Wenqi's direction. Teammates supplied the initial workflow and Advocate/Judge interface drafts and were responsible for the other assigned components. Organizer data and policy material retain their original provenance.
+
+The work retained here includes:
+
+- Deterministic conversion of case records into an Evidence Pack, with stable evidence and policy IDs and source lookups.
+- One organizer sample, **DISP-002 / No-Show Charge**, and one explicitly labeled synthetic integration case, **SYN-ROUTE-001 / Route Deviation**.
+- Read-only Python, CLI and HTTP tools for loading cases, inspecting evidence, auditing inconsistencies and validating references.
+- Versioned snapshots binding source data, normalization version, source mappings and provenance; JSON Schema validation for the agreed contracts.
+- A standalone local evidence inspector, unit/contract/HTTP tests, an isolated package-installation check and integration documentation.
+
+Advocate model calls, Judge reasoning, multi-agent orchestration and the team's final evaluation UI are outside this standalone module's implementation scope. Those parts should be reviewed in the team repository with their respective contribution history.
+
+## Historical baseline and limitations
+
+This v0.2.0 snapshot predates the later official DISP-001 and DISP-003 integration and standalone Policy v2.1 support. For that work and the current policy interpretation, read the team's [Evidence integration guide](https://github.com/Maple-0102/ryderesolve/blob/main/docs/EVIDENCE-INTEGRATION.md).
+
+- The original no-show sample retains distinct order, App and scheduled-pickup clocks: 480, 470 and 360 seconds. This snapshot does not choose a billing basis without a supporting policy.
+- Synthetic route records and rules are integration fixtures. Polyline calculations do not establish an optimal road route or an official Ryde policy.
+- Expected outcomes in `evaluation/` are separated from runtime inputs. Reference validation checks structure and identifier resolution; it does not prove that an argument or ruling is correct.
+- The dated [validation record](docs/VALIDATION.md) reports checks performed for the original module. Current CI results are available in [Actions](https://github.com/Wenqi77Zhang/ryderesolve-evidence-tools/actions); historical results do not establish current model quality or end-to-end product performance.
+
+## Run the original module
+
+Python 3.12+ is required. From this repository in Windows PowerShell:
 
 ```powershell
 python -m venv .venv
@@ -15,75 +63,39 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m ryderesolve_evidence serve --port 8765
 ```
 
-打开 <http://127.0.0.1:8765>。选择案例后，可以点击 `E-xxx` / `P-xxx` 查看原始记录，检查数据冲突，并下载 Evidence Pack 或包含版本与原始证据的完整快照。按 `Ctrl+C` 停止服务。已有 `.venv` 时无需重复创建；升级后重新运行安装命令。
+Open <http://127.0.0.1:8765> to inspect cases, evidence and policy references, audit flags and downloadable snapshots. Use `Ctrl+C` to stop the server. On macOS/Linux, use `.venv/bin/python` instead of `.\.venv\Scripts\python.exe`.
 
-macOS/Linux 用 `.venv/bin/python` 替换上述 Python 路径。只读取/生成数据时，无需启动网页，也无需模型账号或 API key：
+CLI inspection does not require the server or a model API key:
 
 ```powershell
 .\.venv\Scripts\python.exe -m ryderesolve_evidence pack DISP-002
 .\.venv\Scripts\python.exe -m ryderesolve_evidence prepare DISP-002
 .\.venv\Scripts\python.exe -m ryderesolve_evidence audit DISP-002
-.\.venv\Scripts\python.exe -m ryderesolve_evidence evidence DISP-002 E-002
 .\.venv\Scripts\python.exe -m ryderesolve_evidence route SYN-ROUTE-001
-.\.venv\Scripts\python.exe -m ryderesolve_evidence export DISP-002 --out work\exports
 ```
 
-## 先读哪份文件
-
-- [给队友的接入说明](docs/INTEGRATION.md)：函数、HTTP、JSON 字段、引用规则。
-- [项目基线](docs/PROJECT_BASELINE.md)：已确定的范围、接口约定、待确认项；后续工作以此续接。
-- [官方数据核对](docs/SOURCE_AUDIT.md)：480 秒 / 470 秒差异、陈述来源、答案隔离与模拟数据边界。
-- [验证记录](docs/VALIDATION.md)：本次实际执行结果与仍待团队联调的部分。
-- [补强审查与待确认事项](docs/HARDENING_REVIEW.md)：已复现的问题、修复、能力边界以及下一步所需信息。
-- [来源与署名](docs/PROVENANCE.md)：原始数据、合成数据和个人/团队/AI 辅助贡献的区分。
-
-## 核心接口
-
-`case_id`、`evidence_id`、`evidence_refs`、`policy_refs`、`decision` 保留原名。
+The shared names `case_id`, `evidence_id`, `evidence_refs`, `policy_refs` and `decision` are preserved. Evidence Pack keeps `case_id / dispute_type / facts / policy`; each fact requires `evidence_id / fact / source`. Source excerpts, audit metadata and snapshot information are available through separate read-only queries.
 
 ```python
 from ryderesolve_evidence import EvidenceTools
 
 tools = EvidenceTools()
-snapshot = tools.prepare_case("DISP-002")  # 一次读取，避免分别取 raw/pack/audit 时版本不一致
-pack = snapshot["evidence_pack"]  # 原接口不变
-source = tools.get_evidence("DISP-002", "E-002", expected_snapshot_id=snapshot["snapshot_id"])
+snapshot = tools.prepare_case("DISP-002")
+pack = snapshot["evidence_pack"]
+source = tools.get_evidence(
+    "DISP-002", "E-002", expected_snapshot_id=snapshot["snapshot_id"]
+)
 ```
 
-Evidence Pack 仍为 `case_id / dispute_type / facts / policy`。每条事实只要求 `evidence_id / fact / source`。来源路径、证据类型、版本和核对结果放在独立查询结果中，不给原接口增加必填字段。
+## Original development documents
 
-JSON Schema（机器可校验的字段规范）保存在 `ryderesolve_evidence/contracts/`。`decision` 暂为非空字符串，完整取值集合仍由团队共同确定。有效引用只能证明编号存在，不能证明模型对证据的解读正确。
+These dated documents, originally written in Chinese, are retained as records of this module's earlier development stage. Their pending items and completion statements describe that stage; use the team repository for subsequent decisions and updates.
 
-旧的 `load_case → normalize_evidence(raw)` 方式仍可用。正式联调推荐 `prepare_case`：其 `snapshot_id` 同时绑定原始数据、规范化版本、证据映射和来源标签。仅保存 `source_sha256` 无法发现规范化代码改变后的旧引用。
+- [Integration guide](docs/INTEGRATION.md): Python/HTTP interfaces, JSON fields and reference rules.
+- [Project baseline](docs/PROJECT_BASELINE.md): original scope, team contracts and open questions.
+- [Source audit](docs/SOURCE_AUDIT.md): timing discrepancies, statement attribution and data boundaries.
+- [Validation record](docs/VALIDATION.md): original checks and integration limitations.
+- [Hardening review](docs/HARDENING_REVIEW.md): reproduced issues, fixes and remaining questions.
+- [Provenance and attribution](docs/PROVENANCE.md): source ownership and human/team/AI-assisted contribution boundaries.
 
-## 当前边界
-
-- 本仓库实现证据处理和只读工具；双方 Agent、Judge 的模型调用、回应轮次及最终展示仍需与队友集成。
-- 官方 Markdown 的预期裁决单独存放在 `evaluation/official_expected.json`，运行时加载路径不读取该目录。
-- 合成路线与规则属于联调用例；距离是采样折线计算，不能声称是地图最优路线或真实 Ryde 政策。
-- 计时口径待主办方澄清；订单起点 480 秒、App 起点 470 秒、预约时间到取消 360 秒均保留，不自行选为收费依据。
-- 本次开发由琪琪主导需求并由 Codex 辅助实现。尚无 CodeBuddy/WorkBuddy 实际使用证明；比赛要求的真实开发记录需要后续补足。
-
-## GitHub 同步
-
-远端应始终保持 **Private**。首次克隆及日常更新：
-
-```powershell
-gh repo clone Wenqi77Zhang/ryderesolve-evidence-tools
-git pull --ff-only
-```
-
-在本地完成修改并测试后：
-
-```powershell
-git status
-git add <本次修改的文件>
-git diff --cached --check
-git commit -m "Describe the evidence change"
-git push origin main
-gh repo view --json visibility,url
-```
-
-如果 Git 报 `Could not connect` 且明确指向本机代理 `127.0.0.1`，本次可用 `git -c http.proxy= push origin main` 或 `git -c http.proxy= pull --ff-only` 临时直连；该参数只影响当前命令，不改全局代理设置。
-
-队友访问私有仓库需要你后续明确选择协作者。不要提交 `.venv`、密钥、真实乘客数据或个人邮箱内容。
+Both repositories are private. Their links require repository access. Preserve source ownership and keep credentials, private communications and real passenger records out of commits.
