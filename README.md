@@ -10,10 +10,10 @@ After this module was handed over, the team lead integrated it with the other me
 
 | Repository | Role |
 | --- | --- |
-| [Wenqi77Zhang/ryderesolve-evidence-tools](https://github.com/Wenqi77Zhang/ryderesolve-evidence-tools) | Original Evidence/Data + tools development, validation and handoff record. |
+| [Wenqi77Zhang/ryderesolve-evidence-earlier-work](https://github.com/Wenqi77Zhang/ryderesolve-evidence-earlier-work) | Original Evidence/Data + tools development, validation and handoff record. |
 | [Maple-0102/ryderesolve](https://github.com/Maple-0102/ryderesolve) | Shared team project integrating Evidence, Rider/Driver Advocates, Judge, orchestration and the application UI. |
 
-The team baseline imported the module under [`vendor/ryderesolve-evidence-tools/`](https://github.com/Maple-0102/ryderesolve/tree/2e6bea725e19febf119de81ddf17c60cc6d54661/vendor/ryderesolve-evidence-tools). Its core Python package, case data, contracts and tests match the corresponding files at this repository's original [`64b072a`](https://github.com/Wenqi77Zhang/ryderesolve-evidence-tools/commit/64b072abe4596d74e3809701753d99d76aa04f90) baseline. The standalone inspector UI and repository-level setup were not all carried into that import.
+The team baseline imported the module under [`vendor/ryderesolve-evidence-tools/`](https://github.com/Maple-0102/ryderesolve/tree/2e6bea725e19febf119de81ddf17c60cc6d54661/vendor/ryderesolve-evidence-tools). Its core Python package, case data, contracts and tests match the corresponding files at this repository's original [`64b072a`](https://github.com/Wenqi77Zhang/ryderesolve-evidence-earlier-work/commit/64b072abe4596d74e3809701753d99d76aa04f90) baseline. The standalone inspector UI and repository-level setup were not all carried into that import.
 
 The import appears in the team repository under the integrator's commit. The original development commits remain here under `Wenqi77Zhang`; the links below document that history across the two repositories. This record attributes the Evidence/Data + tools component to Wenqi's assigned work, while the integrated product remains a team project.
 
@@ -23,9 +23,9 @@ Dates below use Singapore time (UTC+8).
 
 | Date | Record | Scope |
 | --- | --- | --- |
-| 2 October 2026 | [`58f05ae`](https://github.com/Wenqi77Zhang/ryderesolve-evidence-tools/commit/58f05aee25239d66dd14af6e2708930097913bc8) | Implemented the traceable evidence module for the agreed dispute cases. |
-| 2 October 2026 | [`333c5ad`](https://github.com/Wenqi77Zhang/ryderesolve-evidence-tools/commit/333c5adb0193717c239724b8e1f4fa6264cceb5d) | Documented the repository synchronization workaround. |
-| 2 October 2026 | [`64b072a`](https://github.com/Wenqi77Zhang/ryderesolve-evidence-tools/commit/64b072abe4596d74e3809701753d99d76aa04f90) | Hardened evidence snapshots, schema validation and trip-window calculations. |
+| 2 October 2026 | [`58f05ae`](https://github.com/Wenqi77Zhang/ryderesolve-evidence-earlier-work/commit/58f05aee25239d66dd14af6e2708930097913bc8) | Implemented the traceable evidence module for the agreed dispute cases. |
+| 2 October 2026 | [`333c5ad`](https://github.com/Wenqi77Zhang/ryderesolve-evidence-earlier-work/commit/333c5adb0193717c239724b8e1f4fa6264cceb5d) | Documented the repository synchronization workaround. |
+| 2 October 2026 | [`64b072a`](https://github.com/Wenqi77Zhang/ryderesolve-evidence-earlier-work/commit/64b072abe4596d74e3809701753d99d76aa04f90) | Hardened evidence snapshots, schema validation and trip-window calculations. |
 | 13 October 2026 | [Team integration commit `2e6bea7`](https://github.com/Maple-0102/ryderesolve/commit/2e6bea725e19febf119de81ddf17c60cc6d54661) | The team lead integrated the Evidence, Advocate and Judge baseline in the shared repository. |
 | 16 October 2026 | [Team PR #2, merged](https://github.com/Maple-0102/ryderesolve/pull/2) | Wenqi's subsequent official-dataset and Ryde Policy v2.1 integration was merged into the team project. That later implementation is maintained there. |
 
@@ -50,7 +50,7 @@ This v0.2.0 snapshot predates the later official DISP-001 and DISP-003 integrati
 - The original no-show sample retains distinct order, App and scheduled-pickup clocks: 480, 470 and 360 seconds. This snapshot does not choose a billing basis without a supporting policy.
 - Synthetic route records and rules are integration fixtures. Polyline calculations do not establish an optimal road route or an official Ryde policy.
 - Expected outcomes in `evaluation/` are separated from runtime inputs. Reference validation checks structure and identifier resolution; it does not prove that an argument or ruling is correct.
-- The dated [validation record](docs/VALIDATION.md) reports checks performed for the original module. Current CI results are available in [Actions](https://github.com/Wenqi77Zhang/ryderesolve-evidence-tools/actions); historical results do not establish current model quality or end-to-end product performance.
+- The dated [validation record](docs/VALIDATION.md) reports checks performed for the original module. Current CI results are available in [Actions](https://github.com/Wenqi77Zhang/ryderesolve-evidence-earlier-work/actions); historical results do not establish current model quality or end-to-end product performance.
 
 ## Run the original module
 
